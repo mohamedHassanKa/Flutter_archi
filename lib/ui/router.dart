@@ -38,7 +38,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case '/login':
       return Platform.isIOS
           ? CupertinoPageRoute(builder: (context) => LoginPage())
-          : SlideFromCenter(page: LoginPage());
+          : ScaleTransition2(page: LoginPage());
 
     // case '/changePassword':
     //   return Platform.isIOS

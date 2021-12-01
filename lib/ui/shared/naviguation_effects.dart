@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class SlideFromButton extends PageRouteBuilder {
+class SizeSlideFromButton extends PageRouteBuilder {
   final Widget page;
 
-  SlideFromButton({required this.page})
+  SizeSlideFromButton({required this.page})
       : super(
           pageBuilder: (context, animation, anotherAnimation) => page,
           transitionDuration: const Duration(milliseconds: 1000),
@@ -25,10 +25,10 @@ class SlideFromButton extends PageRouteBuilder {
         );
 }
 
-class SlideFromTop extends PageRouteBuilder {
+class SizeSlideFromTop extends PageRouteBuilder {
   final Widget page;
 
-  SlideFromTop({required this.page})
+  SizeSlideFromTop({required this.page})
       : super(
           pageBuilder: (context, animation, anotherAnimation) => page,
           transitionDuration: const Duration(milliseconds: 1000),
@@ -50,10 +50,10 @@ class SlideFromTop extends PageRouteBuilder {
         );
 }
 
-class SlideFromCenter extends PageRouteBuilder {
+class SizeSlideFromCenter extends PageRouteBuilder {
   final Widget page;
 
-  SlideFromCenter({required this.page})
+  SizeSlideFromCenter({required this.page})
       : super(
           pageBuilder: (context, animation, anotherAnimation) => page,
           transitionDuration: const Duration(milliseconds: 1000),
@@ -76,10 +76,10 @@ class SlideFromCenter extends PageRouteBuilder {
         );
 }
 
-class SlideFromLeft extends PageRouteBuilder {
+class SizeSlideFromLeft extends PageRouteBuilder {
   final Widget page;
 
-  SlideFromLeft({required this.page})
+  SizeSlideFromLeft({required this.page})
       : super(
           pageBuilder: (context, animation, anotherAnimation) => page,
           transitionDuration: const Duration(milliseconds: 1000),
@@ -102,10 +102,10 @@ class SlideFromLeft extends PageRouteBuilder {
         );
 }
 
-class SlideFromRight extends PageRouteBuilder {
+class SizeSlideFromRight extends PageRouteBuilder {
   final Widget page;
 
-  SlideFromRight({required this.page})
+  SizeSlideFromRight({required this.page})
       : super(
           pageBuilder: (context, animation, anotherAnimation) => page,
           transitionDuration: const Duration(milliseconds: 1000),
@@ -123,6 +123,160 @@ class SlideFromRight extends PageRouteBuilder {
                 child: page,
                 axisAlignment: 0,
               ),
+            );
+          },
+        );
+}
+
+class ScaleTransition1 extends PageRouteBuilder {
+  final Widget page;
+
+  ScaleTransition1({required this.page})
+      : super(
+          pageBuilder: (context, animation, anotherAnimation) => page,
+          transitionDuration: Duration(milliseconds: 1000),
+          reverseTransitionDuration: Duration(milliseconds: 200),
+          transitionsBuilder: (context, animation, anotherAnimation, child) {
+            animation = CurvedAnimation(
+                curve: Curves.fastLinearToSlowEaseIn,
+                parent: animation,
+                reverseCurve: Curves.fastOutSlowIn);
+            return ScaleTransition(
+              alignment: Alignment.bottomCenter,
+              scale: animation,
+              child: child,
+            );
+          },
+        );
+}
+
+class ScaleTransition2 extends PageRouteBuilder {
+  final Widget page;
+
+  ScaleTransition2({required this.page})
+      : super(
+          pageBuilder: (context, animation, anotherAnimation) => page,
+          transitionDuration: Duration(milliseconds: 1000),
+          reverseTransitionDuration: Duration(milliseconds: 200),
+          transitionsBuilder: (context, animation, anotherAnimation, child) {
+            animation = CurvedAnimation(
+                curve: Curves.fastLinearToSlowEaseIn,
+                parent: animation,
+                reverseCurve: Curves.fastOutSlowIn);
+            return ScaleTransition(
+              alignment: Alignment.topCenter,
+              scale: animation,
+              child: child,
+            );
+          },
+        );
+}
+
+class ScaleTransition3 extends PageRouteBuilder {
+  final Widget page;
+
+  ScaleTransition3({required this.page})
+      : super(
+          pageBuilder: (context, animation, anotherAnimation) => page,
+          transitionDuration: Duration(milliseconds: 1000),
+          reverseTransitionDuration: Duration(milliseconds: 200),
+          transitionsBuilder: (context, animation, anotherAnimation, child) {
+            animation = CurvedAnimation(
+                curve: Curves.fastLinearToSlowEaseIn,
+                parent: animation,
+                reverseCurve: Curves.fastOutSlowIn);
+            return ScaleTransition(
+              alignment: Alignment.bottomLeft,
+              scale: animation,
+              child: child,
+            );
+          },
+        );
+}
+
+class ScaleTransition4 extends PageRouteBuilder {
+  final Widget page;
+
+  ScaleTransition4({required this.page})
+      : super(
+          pageBuilder: (context, animation, anotherAnimation) => page,
+          transitionDuration: Duration(milliseconds: 1000),
+          reverseTransitionDuration: Duration(milliseconds: 200),
+          transitionsBuilder: (context, animation, anotherAnimation, child) {
+            animation = CurvedAnimation(
+                curve: Curves.fastLinearToSlowEaseIn,
+                parent: animation,
+                reverseCurve: Curves.fastOutSlowIn);
+            return ScaleTransition(
+              alignment: Alignment.bottomRight,
+              scale: animation,
+              child: child,
+            );
+          },
+        );
+}
+
+class ScaleTransition5 extends PageRouteBuilder {
+  final Widget page;
+
+  ScaleTransition5({required this.page})
+      : super(
+          pageBuilder: (context, animation, anotherAnimation) => page,
+          transitionDuration: Duration(milliseconds: 1000),
+          reverseTransitionDuration: Duration(milliseconds: 200),
+          transitionsBuilder: (context, animation, anotherAnimation, child) {
+            animation = CurvedAnimation(
+                curve: Curves.fastLinearToSlowEaseIn,
+                parent: animation,
+                reverseCurve: Curves.fastOutSlowIn);
+            return ScaleTransition(
+              alignment: Alignment.center,
+              scale: animation,
+              child: child,
+            );
+          },
+        );
+}
+
+class ScaleTransition6 extends PageRouteBuilder {
+  final Widget page;
+
+  ScaleTransition6({required this.page})
+      : super(
+          pageBuilder: (context, animation, anotherAnimation) => page,
+          transitionDuration: Duration(milliseconds: 1000),
+          reverseTransitionDuration: Duration(milliseconds: 200),
+          transitionsBuilder: (context, animation, anotherAnimation, child) {
+            animation = CurvedAnimation(
+                curve: Curves.fastLinearToSlowEaseIn,
+                parent: animation,
+                reverseCurve: Curves.fastOutSlowIn);
+            return ScaleTransition(
+              alignment: Alignment.centerRight,
+              scale: animation,
+              child: child,
+            );
+          },
+        );
+}
+
+class ScaleTransition7 extends PageRouteBuilder {
+  final Widget page;
+
+  ScaleTransition7({required this.page})
+      : super(
+          pageBuilder: (context, animation, anotherAnimation) => page,
+          transitionDuration: Duration(milliseconds: 1000),
+          reverseTransitionDuration: Duration(milliseconds: 200),
+          transitionsBuilder: (context, animation, anotherAnimation, child) {
+            animation = CurvedAnimation(
+                curve: Curves.fastLinearToSlowEaseIn,
+                parent: animation,
+                reverseCurve: Curves.fastOutSlowIn);
+            return ScaleTransition(
+              alignment: Alignment.centerLeft,
+              scale: animation,
+              child: child,
             );
           },
         );
