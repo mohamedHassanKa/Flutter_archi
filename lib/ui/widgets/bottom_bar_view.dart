@@ -43,6 +43,9 @@ class BottomBarViewState extends State<BottomBarView> {
           color: Theme.of(context).primaryColor,
           onTap: () => {
             setState(() {
+              if (currentIndex == index) {
+                return;
+              }
               currentIndex = index;
               widget.changeIndex(index);
               HapticFeedback.lightImpact();
