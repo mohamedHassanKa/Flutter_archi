@@ -4,6 +4,7 @@ import 'dart:math' as math;
 import '../widgets/naviguation_animation_widget.dart';
 import '../widgets/search_bar.dart';
 import '../widgets/sliding_cards_view.dart';
+import '../widgets/splashy_effect.dart';
 
 class DashboardScreen extends StatefulWidget {
   final AnimationController? animationController;
@@ -29,9 +30,6 @@ class _DashboardScreenState extends State<DashboardScreen> {
           child: SingleChildScrollView(
             child: Column(
               children: <Widget>[
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.05,
-                ),
                 NaviguationAnimationBuild(
                   child: SearchBar(),
                   countWidget: 9,

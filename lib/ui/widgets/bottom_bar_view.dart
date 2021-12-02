@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import './splashy_effect.dart';
 
 class BottomBarView extends StatefulWidget {
   final Function addClick;
@@ -27,7 +28,7 @@ class BottomBarViewState extends State<BottomBarView> {
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(.1),
+            color: Colors.black.withOpacity(.3),
             blurRadius: 30,
             offset: const Offset(0, 10),
           ),
@@ -38,16 +39,15 @@ class BottomBarViewState extends State<BottomBarView> {
         itemCount: 4,
         scrollDirection: Axis.horizontal,
         padding: EdgeInsets.symmetric(horizontal: displayWidth * .02),
-        itemBuilder: (context, index) => InkWell(
-          onTap: () {
+        itemBuilder: (context, index) => SplashySplash(
+          color: Theme.of(context).primaryColor,
+          onTap: () => {
             setState(() {
               currentIndex = index;
               widget.changeIndex(index);
               HapticFeedback.lightImpact();
-            });
+            })
           },
-          splashColor: Colors.transparent,
-          highlightColor: Colors.transparent,
           child: Stack(
             children: [
               AnimatedContainer(

@@ -44,6 +44,7 @@ class _HomeViewState extends State<HomeView> with TickerProviderStateMixin {
     return Container(
       color: Theme.of(context).scaffoldBackgroundColor,
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         backgroundColor: Colors.transparent,
         body: FutureBuilder(
           future: getData(),
