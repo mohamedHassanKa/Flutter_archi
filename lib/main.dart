@@ -5,6 +5,9 @@ import 'package:provider/provider.dart';
 import 'ui/shared/theme.dart';
 import 'ui/router.dart';
 
+import './core/card_list_model.dart';
+import './core/hotelListModel.dart';
+
 void main() {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
@@ -37,12 +40,18 @@ class _MaterialAppWithThemeState extends State<MaterialAppWithTheme> {
   @override
   Widget build(BuildContext context) {
     final theme = Provider.of<ThemeChanger>(context);
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      onGenerateRoute: generateRoute,
-      initialRoute: '/walkthrough',
-      theme: theme.getTheme(),
-      title: 'Restaurant Template',
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => CardListModelView()),
+        ChangeNotifierProvider(create: (context) => HotelListModel())
+      ],
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        onGenerateRoute: generateRoute,
+        initialRoute: '/walkthrough',
+        theme: theme.getTheme(),
+        title: 'Restaurant Template',
+      ),
     );
   }
 }
