@@ -46,9 +46,7 @@ class LiquidSwipe extends StatefulWidget {
   })  : assert(pages != null),
         assert(onPageChangeCallback != null),
         assert(fullTransitionValue != null),
-        assert(initialPage != null &&
-            initialPage >= 0 &&
-            initialPage < pages.length),
+        assert(initialPage != null && initialPage >= 0 && initialPage < pages.length),
         assert(positionSlideIcon >= -1 && positionSlideIcon <= 1),
         super(key: key);
 
@@ -70,17 +68,14 @@ class SlideUpdate {
 }
 
 class _LiquidSwipe extends State<LiquidSwipe> with TickerProviderStateMixin {
-  StreamController<SlideUpdate>?
-      slideUpdateStream; //Stream controller is used to get all the updates when user slides across screen.
+  StreamController<SlideUpdate>? slideUpdateStream; //Stream controller is used to get all the updates when user slides across screen.
 
-  AnimatedPageDragger?
-      animatedPageDragger; //When user stops dragging then by using this page automatically drags.
+  AnimatedPageDragger? animatedPageDragger; //When user stops dragging then by using this page automatically drags.
 
   int activePageIndex = 0; //active page index
   int nextPageIndex = 0; //next page index
   SlideDirection slideDirection = SlideDirection.none; //slide direction
-  double? slidePercentHor,
-      slidePercentVer = 0.0; //slide percentage (0.0 to 1.0)
+  double? slidePercentHor, slidePercentVer = 0.0; //slide percentage (0.0 to 1.0)
   StreamSubscription<SlideUpdate>? slideUpdateStream$;
   UpdateType? prevUpdate;
   bool finishScroll = true;
@@ -105,8 +100,7 @@ class _LiquidSwipe extends State<LiquidSwipe> with TickerProviderStateMixin {
       setState(() {
         finishScroll = false;
         //send the current update type through a callback
-        if (prevUpdate != event.updateType)
-          widget.currentUpdateTypeCallback!(event.updateType);
+        if (prevUpdate != event.updateType) widget.currentUpdateTypeCallback!(event.updateType);
 
         prevUpdate = event.updateType;
         //setState is used to change the values dynamically
@@ -132,11 +126,9 @@ class _LiquidSwipe extends State<LiquidSwipe> with TickerProviderStateMixin {
             else if (nextPageIndex < 0) nextPageIndex = widget.pages.length - 1;
           } else {
             //conditions on slide direction
-            if (slideDirection == SlideDirection.leftToRight &&
-                activePageIndex != 0) {
+            if (slideDirection == SlideDirection.leftToRight && activePageIndex != 0) {
               nextPageIndex = activePageIndex - 1;
-            } else if (slideDirection == SlideDirection.rightToLeft &&
-                activePageIndex != widget.pages.length - 1) {
+            } else if (slideDirection == SlideDirection.rightToLeft && activePageIndex != widget.pages.length - 1) {
               nextPageIndex = activePageIndex + 1;
             } else {
               nextPageIndex = activePageIndex;
@@ -210,13 +202,9 @@ class _LiquidSwipe extends State<LiquidSwipe> with TickerProviderStateMixin {
               : !finishScroll
                   ? pages[nextPageIndex]
                   : Container(
-                      color: widget.colors[
-                          nextPageIndex + 1 >= widget.pages.length
-                              ? 0
-                              : nextPageIndex + 1],
+                      color: widget.colors[nextPageIndex + 1 >= widget.pages.length ? 0 : nextPageIndex + 1],
                       child: ClipPath(
-                        clipper:
-                            WaveLayer(revealPercent: 0.01, verReveal: 1.25),
+                        clipper: WaveLayer(revealPercent: 0.01, verReveal: 1.25),
                         child: PageStack(
                           pageView: pages[nextPageIndex],
                         ),
@@ -227,10 +215,7 @@ class _LiquidSwipe extends State<LiquidSwipe> with TickerProviderStateMixin {
           PageReveal(
             //next page reveal
             revealPercent: slidePercentHor!,
-            child: PageStack(
-                pageView: slideDirection == SlideDirection.leftToRight
-                    ? pages[nextPageIndex]
-                    : pages[activePageIndex]),
+            child: PageStack(pageView: slideDirection == SlideDirection.leftToRight ? pages[nextPageIndex] : pages[activePageIndex]),
             slideDirection: slideDirection,
             iconPosition: widget.positionSlideIcon,
 

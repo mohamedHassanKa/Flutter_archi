@@ -9,10 +9,7 @@ class SizeSlideFromButton extends PageRouteBuilder {
           transitionDuration: const Duration(milliseconds: 1000),
           reverseTransitionDuration: const Duration(milliseconds: 200),
           transitionsBuilder: (context, animation, anotherAnimation, child) {
-            animation = CurvedAnimation(
-                curve: Curves.fastLinearToSlowEaseIn,
-                parent: animation,
-                reverseCurve: Curves.fastOutSlowIn);
+            animation = CurvedAnimation(curve: Curves.fastLinearToSlowEaseIn, parent: animation, reverseCurve: Curves.fastOutSlowIn);
             return Align(
               alignment: Alignment.bottomCenter,
               child: SizeTransition(
@@ -34,10 +31,7 @@ class SizeSlideFromTop extends PageRouteBuilder {
           transitionDuration: const Duration(milliseconds: 1000),
           reverseTransitionDuration: const Duration(milliseconds: 200),
           transitionsBuilder: (context, animation, anotherAnimation, child) {
-            animation = CurvedAnimation(
-                curve: Curves.fastLinearToSlowEaseIn,
-                parent: animation,
-                reverseCurve: Curves.fastOutSlowIn);
+            animation = CurvedAnimation(curve: Curves.fastLinearToSlowEaseIn, parent: animation, reverseCurve: Curves.fastOutSlowIn);
             return Align(
               alignment: Alignment.topCenter,
               child: SizeTransition(
@@ -59,10 +53,7 @@ class SizeSlideFromCenter extends PageRouteBuilder {
           transitionDuration: const Duration(milliseconds: 1000),
           reverseTransitionDuration: const Duration(milliseconds: 200),
           transitionsBuilder: (context, animation, anotherAnimation, child) {
-            animation = CurvedAnimation(
-                curve: Curves.fastLinearToSlowEaseIn,
-                parent: animation,
-                reverseCurve: Curves.fastOutSlowIn);
+            animation = CurvedAnimation(curve: Curves.fastLinearToSlowEaseIn, parent: animation, reverseCurve: Curves.fastOutSlowIn);
             return Align(
               alignment: Alignment.center,
               child: SizeTransition(
@@ -85,10 +76,7 @@ class SizeSlideFromLeft extends PageRouteBuilder {
           transitionDuration: const Duration(milliseconds: 1000),
           reverseTransitionDuration: const Duration(milliseconds: 200),
           transitionsBuilder: (context, animation, anotherAnimation, child) {
-            animation = CurvedAnimation(
-                curve: Curves.fastLinearToSlowEaseIn,
-                parent: animation,
-                reverseCurve: Curves.fastOutSlowIn);
+            animation = CurvedAnimation(curve: Curves.fastLinearToSlowEaseIn, parent: animation, reverseCurve: Curves.fastOutSlowIn);
             return Align(
               alignment: Alignment.centerLeft,
               child: SizeTransition(
@@ -111,10 +99,7 @@ class SizeSlideFromRight extends PageRouteBuilder {
           transitionDuration: const Duration(milliseconds: 1000),
           reverseTransitionDuration: const Duration(milliseconds: 200),
           transitionsBuilder: (context, animation, anotherAnimation, child) {
-            animation = CurvedAnimation(
-                curve: Curves.fastLinearToSlowEaseIn,
-                parent: animation,
-                reverseCurve: Curves.fastOutSlowIn);
+            animation = CurvedAnimation(curve: Curves.fastLinearToSlowEaseIn, parent: animation, reverseCurve: Curves.fastOutSlowIn);
             return Align(
               alignment: Alignment.centerRight,
               child: SizeTransition(
@@ -137,10 +122,7 @@ class ScaleTransition1 extends PageRouteBuilder {
           transitionDuration: Duration(milliseconds: 1000),
           reverseTransitionDuration: Duration(milliseconds: 200),
           transitionsBuilder: (context, animation, anotherAnimation, child) {
-            animation = CurvedAnimation(
-                curve: Curves.fastLinearToSlowEaseIn,
-                parent: animation,
-                reverseCurve: Curves.fastOutSlowIn);
+            animation = CurvedAnimation(curve: Curves.fastLinearToSlowEaseIn, parent: animation, reverseCurve: Curves.fastOutSlowIn);
             return ScaleTransition(
               alignment: Alignment.bottomCenter,
               scale: animation,
@@ -159,10 +141,7 @@ class ScaleTransition2 extends PageRouteBuilder {
           transitionDuration: Duration(milliseconds: 1000),
           reverseTransitionDuration: Duration(milliseconds: 200),
           transitionsBuilder: (context, animation, anotherAnimation, child) {
-            animation = CurvedAnimation(
-                curve: Curves.fastLinearToSlowEaseIn,
-                parent: animation,
-                reverseCurve: Curves.fastOutSlowIn);
+            animation = CurvedAnimation(curve: Curves.fastLinearToSlowEaseIn, parent: animation, reverseCurve: Curves.fastOutSlowIn);
             return ScaleTransition(
               alignment: Alignment.topCenter,
               scale: animation,
@@ -181,10 +160,7 @@ class ScaleTransition3 extends PageRouteBuilder {
           transitionDuration: Duration(milliseconds: 1000),
           reverseTransitionDuration: Duration(milliseconds: 200),
           transitionsBuilder: (context, animation, anotherAnimation, child) {
-            animation = CurvedAnimation(
-                curve: Curves.fastLinearToSlowEaseIn,
-                parent: animation,
-                reverseCurve: Curves.fastOutSlowIn);
+            animation = CurvedAnimation(curve: Curves.fastLinearToSlowEaseIn, parent: animation, reverseCurve: Curves.fastOutSlowIn);
             return ScaleTransition(
               alignment: Alignment.bottomLeft,
               scale: animation,
@@ -203,10 +179,7 @@ class ScaleTransition4 extends PageRouteBuilder {
           transitionDuration: Duration(milliseconds: 1000),
           reverseTransitionDuration: Duration(milliseconds: 200),
           transitionsBuilder: (context, animation, anotherAnimation, child) {
-            animation = CurvedAnimation(
-                curve: Curves.fastLinearToSlowEaseIn,
-                parent: animation,
-                reverseCurve: Curves.fastOutSlowIn);
+            animation = CurvedAnimation(curve: Curves.fastLinearToSlowEaseIn, parent: animation, reverseCurve: Curves.fastOutSlowIn);
             return ScaleTransition(
               alignment: Alignment.bottomRight,
               scale: animation,
@@ -225,10 +198,7 @@ class ScaleTransition5 extends PageRouteBuilder {
           transitionDuration: Duration(milliseconds: 1000),
           reverseTransitionDuration: Duration(milliseconds: 200),
           transitionsBuilder: (context, animation, anotherAnimation, child) {
-            animation = CurvedAnimation(
-                curve: Curves.fastLinearToSlowEaseIn,
-                parent: animation,
-                reverseCurve: Curves.fastOutSlowIn);
+            animation = CurvedAnimation(curve: Curves.fastLinearToSlowEaseIn, parent: animation, reverseCurve: Curves.fastOutSlowIn);
             return ScaleTransition(
               alignment: Alignment.center,
               scale: animation,
@@ -247,10 +217,7 @@ class ScaleTransition6 extends PageRouteBuilder {
           transitionDuration: Duration(milliseconds: 1000),
           reverseTransitionDuration: Duration(milliseconds: 200),
           transitionsBuilder: (context, animation, anotherAnimation, child) {
-            animation = CurvedAnimation(
-                curve: Curves.fastLinearToSlowEaseIn,
-                parent: animation,
-                reverseCurve: Curves.fastOutSlowIn);
+            animation = CurvedAnimation(curve: Curves.fastLinearToSlowEaseIn, parent: animation, reverseCurve: Curves.fastOutSlowIn);
             return ScaleTransition(
               alignment: Alignment.centerRight,
               scale: animation,
@@ -269,10 +236,7 @@ class ScaleTransition7 extends PageRouteBuilder {
           transitionDuration: Duration(milliseconds: 1000),
           reverseTransitionDuration: Duration(milliseconds: 200),
           transitionsBuilder: (context, animation, anotherAnimation, child) {
-            animation = CurvedAnimation(
-                curve: Curves.fastLinearToSlowEaseIn,
-                parent: animation,
-                reverseCurve: Curves.fastOutSlowIn);
+            animation = CurvedAnimation(curve: Curves.fastLinearToSlowEaseIn, parent: animation, reverseCurve: Curves.fastOutSlowIn);
             return ScaleTransition(
               alignment: Alignment.centerLeft,
               scale: animation,
