@@ -37,12 +37,16 @@ dependencies:
   provider: 6.0.1 
   flutter_swiper: ^1.1.6
   flip_card: ^0.2.1
-  flutter_svg: ^0.14.3
+  flutter_svg: ^1.0.0
   rxdart: ^0.27.3
+  injectable: ^1.5.0
+  get_it: ^7.2.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  build_runner:
+  injectable_generator: ^1.5.2
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
