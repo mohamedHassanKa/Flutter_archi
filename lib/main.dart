@@ -6,13 +6,12 @@ import 'ui/shared/theme.dart';
 import 'ui/router.dart';
 
 import './core/card_list_model.dart';
-import './core/hotelListModel.dart';
+import 'core/hotel_list_model.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
     statusBarColor: Colors.transparent,
-    statusBarBrightness:
-        Platform.isAndroid ? Brightness.dark : Brightness.light,
+    statusBarBrightness: Platform.isAndroid ? Brightness.dark : Brightness.light,
   ));
   runApp(const MyApp());
 }

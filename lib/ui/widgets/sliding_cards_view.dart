@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
 import 'package:provider/provider.dart';
-import '../../core/hotelListModel.dart';
+import '../../core/hotel_list_model.dart';
 import '../../core/models/hotel_data_model.dart';
 
 class SlidingCardsView extends StatefulWidget {
@@ -21,8 +21,7 @@ class _SlidingCardsViewState extends State<SlidingCardsView> {
     super.initState();
     pageController = PageController(viewportFraction: 0.8);
     pageController.addListener(() {
-      setState(() =>
-          pageOffset = pageController.page); //<-- add listener and set state
+      setState(() => pageOffset = pageController.page); //<-- add listener and set state
     });
   }
 
@@ -62,13 +61,11 @@ class SlidingCard extends StatelessWidget {
   final double offset; //<-- How far is page from being displayed
 // <-- name of the image to be displayed
 
-  const SlidingCard({Key? key, required this.hotel, required this.offset})
-      : super(key: key);
+  const SlidingCard({Key? key, required this.hotel, required this.offset}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    double gauss = math.exp(-(math.pow((offset.abs() - 0.5), 2) /
-        0.08)); //<--caluclate Gaussian function
+    double gauss = math.exp(-(math.pow((offset.abs() - 0.5), 2) / 0.08)); //<--caluclate Gaussian function
 
     return Transform.translate(
       offset: Offset(-32 * gauss * offset.sign, 0),
@@ -81,8 +78,7 @@ class SlidingCard extends StatelessWidget {
           children: <Widget>[
             ClipRRect(
               //<--clipping image
-              borderRadius:
-                  const BorderRadius.vertical(top: Radius.circular(32)),
+              borderRadius: const BorderRadius.vertical(top: Radius.circular(32)),
               child: Image.asset(
                 //<-- main image
                 hotel.imagePath,
@@ -110,8 +106,7 @@ class CardContent extends StatelessWidget {
 
   final double offset;
 
-  const CardContent({Key? key, required this.hotel, required this.offset})
-      : super(key: key);
+  const CardContent({Key? key, required this.hotel, required this.offset}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -122,9 +117,7 @@ class CardContent extends StatelessWidget {
         children: <Widget>[
           Transform.translate(
             offset: Offset(18 * offset, 0),
-            child: FittedBox(
-                child: Text(hotel.titleTxt,
-                    style: Theme.of(context).textTheme.headline2)),
+            child: FittedBox(child: Text(hotel.titleTxt, style: Theme.of(context).textTheme.headline2)),
           ),
           const SizedBox(height: 4),
           Transform.translate(
@@ -174,10 +167,7 @@ class CardContent extends StatelessWidget {
                     ),
                     Text(
                       '/Night',
-                      style: Theme.of(context)
-                          .textTheme
-                          .headline5!
-                          .copyWith(color: Colors.grey),
+                      style: Theme.of(context).textTheme.headline5!.copyWith(color: Colors.grey),
                     ),
                   ],
                 ),

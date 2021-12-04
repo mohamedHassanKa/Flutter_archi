@@ -1,11 +1,9 @@
-
 import 'package:flutter/material.dart';
 
 import 'models/hotel_data_model.dart';
 
-class HotelListModel extends ChangeNotifier{
-
-  static List<HotelListData> _hotelList = [
+class HotelListModel extends ChangeNotifier {
+  static final List<HotelListData> _hotelList = [
     HotelListData(
       imagePath: 'assets/hotel1.jpg',
       titleTxt: 'Grand Royal Hotel',
@@ -61,7 +59,5 @@ class HotelListModel extends ChangeNotifier{
       perNight: 200,
     ),
   ];
-  List<HotelListData> get hotelList => _hotelList ;
-
-
+  List<HotelListData> get hotelList => _hotelList;
 }

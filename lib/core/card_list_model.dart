@@ -5,8 +5,7 @@ import './helpers/card_colors.dart';
 import 'package:flutter/material.dart';
 
 class CardListModelView extends ChangeNotifier {
-  BehaviorSubject<List<CardResults>> _cardsCollection =
-      BehaviorSubject<List<CardResults>>();
+  BehaviorSubject<List<CardResults>> _cardsCollection = BehaviorSubject<List<CardResults>>();
   BehaviorSubject<CardResults> _selectedCard = BehaviorSubject<CardResults>();
 
   late List<CardResults> _cardResults;
