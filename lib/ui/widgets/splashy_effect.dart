@@ -15,8 +15,7 @@ class SplashySplash extends StatefulWidget {
   _SplashySplashState createState() => _SplashySplashState();
 }
 
-class _SplashySplashState extends State<SplashySplash>
-    with SingleTickerProviderStateMixin {
+class _SplashySplashState extends State<SplashySplash> with SingleTickerProviderStateMixin {
   static const double minRadius = 80;
   static const double maxRadius = 80;
 
@@ -31,8 +30,7 @@ class _SplashySplashState extends State<SplashySplash>
 
   @override
   void initState() {
-    controller = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 350))
+    controller = AnimationController(vsync: this, duration: const Duration(milliseconds: 350))
       ..addListener(() {
         setState(() {});
       })
@@ -40,11 +38,9 @@ class _SplashySplashState extends State<SplashySplash>
         status = listener;
       });
     radiusTween = Tween<double>(begin: 0, end: 50);
-    radiusAnimation = radiusTween!
-        .animate(CurvedAnimation(curve: Curves.ease, parent: controller!));
+    radiusAnimation = radiusTween!.animate(CurvedAnimation(curve: Curves.ease, parent: controller!));
     borderWidthTween = Tween<double>(begin: 25, end: 1);
-    borderWidthAnimation = borderWidthTween!.animate(
-        CurvedAnimation(curve: Curves.fastOutSlowIn, parent: controller!));
+    borderWidthAnimation = borderWidthTween!.animate(CurvedAnimation(curve: Curves.fastOutSlowIn, parent: controller!));
 
     super.initState();
   }
@@ -56,9 +52,7 @@ class _SplashySplashState extends State<SplashySplash>
   void _handleTap(TapUpDetails tapDetails) {
     RenderBox? renderBox = context.findRenderObject() as RenderBox;
     _tapPosition = renderBox.globalToLocal(tapDetails.globalPosition);
-    double radius = (renderBox.size.width > renderBox.size.height)
-        ? renderBox.size.width
-        : renderBox.size.height;
+    double radius = (renderBox.size.width > renderBox.size.height) ? renderBox.size.width : renderBox.size.height;
     double constraintRadius;
     if (radius > maxRadius) {
       constraintRadius = maxRadius;
@@ -102,12 +96,7 @@ class SplashPaint extends CustomPainter {
   final Paint blackPaint;
   final Color color;
 
-  SplashPaint(
-      {required this.radius,
-      required this.borderWidth,
-      this.status,
-      this.tapPosition,
-      required this.color})
+  SplashPaint({required this.radius, required this.borderWidth, this.status, this.tapPosition, required this.color})
       : blackPaint = Paint()
           ..color = color
           ..style = PaintingStyle.stroke

@@ -31,13 +31,9 @@ Route<dynamic> generateRoute(RouteSettings settings) {
           : MaterialPageRoute(builder: (context) => ChangePassword());
 
     case '/home':
-      return Platform.isIOS
-          ? CupertinoPageRoute(builder: (context) => HomeView())
-          : MaterialPageRoute(builder: (context) => HomeView());
+      return Platform.isIOS ? CupertinoPageRoute(builder: (context) => HomeView()) : MaterialPageRoute(builder: (context) => HomeView());
     case '/login':
-      return Platform.isIOS
-          ? CupertinoPageRoute(builder: (context) => LoginPage())
-          : ScaleTransition2(page: LoginPage());
+      return Platform.isIOS ? CupertinoPageRoute(builder: (context) => LoginPage()) : SizeSlideFromButton(page: LoginPage());
 
     // case '/changePassword':
     //   return Platform.isIOS

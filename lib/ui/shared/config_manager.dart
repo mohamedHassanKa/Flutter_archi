@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './utils/responsive_config.dart';
+import './locator_setup/locator.dart';
 
 class ConfigManager extends StatelessWidget {
   const ConfigManager({Key? key, this.initializeConfig = false, required this.builder}) : super(key: key);
@@ -10,7 +11,7 @@ class ConfigManager extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final LayoutConfig layoutConfig = LayoutConfig();
+    final LayoutConfig layoutConfig = locator<LayoutConfig>();
     if (initializeConfig) {
       layoutConfig.init(context);
     }

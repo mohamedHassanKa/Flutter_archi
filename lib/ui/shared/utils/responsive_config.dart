@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:injectable/injectable.dart';
 
 ///this class contain the basic configuration of an app
-
+@singleton
 class LayoutConfig {
   late MediaQueryData _mediaQueryData;
   late double _screenWidth;

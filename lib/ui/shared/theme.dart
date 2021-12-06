@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 import './text_styles.dart' as style;
+import 'package:injectable/injectable.dart';
 
 enum switcherState { dayIdle, nightIdle, switchNight, switchDay }
 
+@singleton
 class ThemeChanger with ChangeNotifier {
   static Color lightBackground = const Color(0xFFF6F6F6);
   static Color lightPrimary = const Color(0xfffcfcff);

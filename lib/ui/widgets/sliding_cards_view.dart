@@ -1,3 +1,4 @@
+import 'package:archi/ui/widgets/splashy_effect.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
@@ -136,44 +137,48 @@ class CardContent extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 4),
-          Row(
-            children: <Widget>[
-              Transform.translate(
-                offset: Offset(48 * offset, 0),
-                child: RaisedButton(
-                  color: Theme.of(context).primaryColor,
-                  child: Transform.translate(
-                    offset: Offset(24 * offset, 0),
-                    child: const Text('Book Now'),
+          SplashySplash(
+            color: Colors.yellow,
+            onTap: () => {},
+            child: Row(
+              children: <Widget>[
+                Transform.translate(
+                  offset: Offset(48 * offset, 0),
+                  child: RaisedButton(
+                    color: Theme.of(context).primaryColor,
+                    child: Transform.translate(
+                      offset: Offset(24 * offset, 0),
+                      child: const Text('Book Now'),
+                    ),
+                    textColor: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(32),
+                    ),
+                    onPressed: () {},
                   ),
-                  textColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(32),
-                  ),
-                  onPressed: () {},
                 ),
-              ),
-              const Spacer(),
-              Transform.translate(
-                offset: Offset(32 * offset, 0),
-                child: Row(
-                  children: <Widget>[
-                    const Text(
-                      '125.00 \$',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20,
+                const Spacer(),
+                Transform.translate(
+                  offset: Offset(32 * offset, 0),
+                  child: Row(
+                    children: <Widget>[
+                      const Text(
+                        '125.00 \$',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
                       ),
-                    ),
-                    Text(
-                      '/Night',
-                      style: Theme.of(context).textTheme.headline5!.copyWith(color: Colors.grey),
-                    ),
-                  ],
+                      Text(
+                        '/Night',
+                        style: Theme.of(context).textTheme.headline5!.copyWith(color: Colors.grey),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              const SizedBox(width: 16),
-            ],
+                const SizedBox(width: 16),
+              ],
+            ),
           )
         ],
       ),

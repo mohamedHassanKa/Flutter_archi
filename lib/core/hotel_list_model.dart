@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'models/hotel_data_model.dart';
+import 'package:injectable/injectable.dart';
 
+@injectable
 class HotelListModel extends ChangeNotifier {
   static final List<HotelListData> _hotelList = [
     HotelListData(
@@ -60,4 +62,8 @@ class HotelListModel extends ChangeNotifier {
     ),
   ];
   List<HotelListData> get hotelList => _hotelList;
+
+  tryPrint() {
+    print('hi');
+  }
 }

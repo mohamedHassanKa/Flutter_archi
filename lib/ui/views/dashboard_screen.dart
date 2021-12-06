@@ -44,8 +44,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                     children: <Widget>[
                       const SizedBox(height: 12),
                       NaviguationAnimationBuild(
-                        child: Text("Hello Alex,",
-                            style: Theme.of(context).textTheme.headline2),
+                        child: Text("Hello Alex,", style: Theme.of(context).textTheme.headline2),
                         countWidget: 9,
                         animationValue: 1,
                         animationController: widget.animationController!,
@@ -53,12 +52,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                       const SizedBox(height: 8),
                       NaviguationAnimationBuild(
                         child: Text("Find your perfect places",
-                            style: Theme.of(context)
-                                .textTheme
-                                .caption!
-                                .copyWith(
-                                    fontSize: 24,
-                                    color: Theme.of(context).hintColor)),
+                            style: Theme.of(context).textTheme.caption!.copyWith(fontSize: 24, color: Theme.of(context).hintColor)),
                         countWidget: 9,
                         animationValue: 1,
                         animationController: widget.animationController!,
@@ -69,15 +63,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: <Widget>[
                             Text("Hotels",
-                                style: TextStyle(
-                                    fontSize: 24,
-                                    color: Theme.of(context).primaryColor,
-                                    fontWeight: FontWeight.w600)),
+                                style: TextStyle(fontSize: 24, color: Theme.of(context).primaryColor, fontWeight: FontWeight.w600)),
                             Text("View all",
-                                style: TextStyle(
-                                    fontSize: 12,
-                                    color: Theme.of(context).primaryColor,
-                                    fontWeight: FontWeight.w600)),
+                                style: TextStyle(fontSize: 12, color: Theme.of(context).primaryColor, fontWeight: FontWeight.w600)),
                           ],
                         ),
                         countWidget: 9,
