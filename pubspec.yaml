@@ -49,12 +49,15 @@ dependencies:
   connectivity: ^3.0.6
   http: ^0.13.4
   shared_preferences: ^2.0.9
+  freezed: ^1.0.2+1
+
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   build_runner:
   injectable_generator: ^1.5.2
+  
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

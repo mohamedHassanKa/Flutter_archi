@@ -27,9 +27,9 @@ class BlockingLoadingIndicator extends StatelessWidget {
                 child: Container(
                   width: config.screenWidth,
                   height: config.screenHeight,
-                  color: Colors.transparent,
+                  color: Colors.white.withOpacity(0.25),
                   child: const Center(
-                    child: Text("Loading"),
+                    child: Text("Loading ..."),
                   ),
                 ),
               ),

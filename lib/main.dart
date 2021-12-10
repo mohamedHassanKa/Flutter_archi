@@ -6,7 +6,7 @@ import 'ui/shared/theme.dart';
 import 'ui/router.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'core/hotel_list_model.dart';
+import 'core/providers/hotel_list_model.dart';
 import './ui/shared/locator_setup/locator.dart';
 import './core/services/app_localization.dart';
 
@@ -47,7 +47,7 @@ class _MaterialAppWithThemeState extends State<MaterialAppWithTheme> {
     final ThemeChanger theme = locator<ThemeChanger>();
     final languageChange = Provider.of<AppLocalizationProvider>(context);
     return MultiProvider(
-      providers: [ChangeNotifierProvider(create: (context) => locator<HotelListModel>())],
+      providers: [ChangeNotifierProvider(create: (context) => locator<HotelListProvider>())],
       child: MaterialApp(
           debugShowCheckedModeBanner: false,
           onGenerateRoute: generateRoute,

@@ -1,6 +1,7 @@
-import 'package:archi/core/hotel_list_model.dart';
+import 'package:archi/core/providers/hotel_list_model.dart';
 import 'package:archi/core/models/hotel_data_model.dart';
 import 'package:archi/ui/widgets/base_view_model.dart';
+import 'package:archi/ui/widgets/loaders/blocked_loading_indicator.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -10,6 +11,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 // import 'HomeView.dart';
 import 'package:provider/provider.dart';
 import '../../core/services/app_localization.dart';
+import '../../core/models/common_models/api_result_model.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -22,40 +24,46 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Theme.of(context).backgroundColor,
-        resizeToAvoidBottomInset: false,
-        body: SafeArea(
-          child: Stack(children: <Widget>[
-            Container(
-              height: double.infinity,
-              child: ClipPath(
-                clipper: BottomShapeClipper(),
-                child: Container(
-                  color: Theme.of(context).primaryColor,
+      backgroundColor: Theme.of(context).backgroundColor,
+      resizeToAvoidBottomInset: false,
+      body: BaseViewModelWidget<HotelListProvider>(
+        builder: (context, _provider) => BlockingLoadingIndicator(
+          isLoading: _provider.busy,
+          child: SafeArea(
+            child: Stack(children: <Widget>[
+              Container(
+                height: double.infinity,
+                child: ClipPath(
+                  clipper: BottomShapeClipper(),
+                  child: Container(
+                    color: Theme.of(context).primaryColor,
+                  ),
                 ),
               ),
-            ),
-            ClipPath(
-              clipper: BottomShapeClipper2(),
-              child: Container(
-                color: Theme.of(context).primaryColor.withOpacity(0.2),
+              ClipPath(
+                clipper: BottomShapeClipper2(),
+                child: Container(
+                  color: Theme.of(context).primaryColor.withOpacity(0.2),
+                ),
               ),
-            ),
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  _loginGradientText(context),
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.04),
-                  _textAccount(context),
-                  SizedBox(height: MediaQuery.of(context).size.height * 0.04),
-                  loginFields(context)
-                ],
-              ),
-            )
-          ]),
-        ));
+              Container(
+                margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    _loginGradientText(context),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.04),
+                    _textAccount(context),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.04),
+                    loginFields(context, _provider)
+                  ],
+                ),
+              )
+            ]),
+          ),
+        ),
+      ),
+    );
   }
 
   GradientText _loginGradientText(context) {
@@ -90,24 +98,6 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  // Container _loginButtonWidget() {
-  //   return Container(
-  //     height: 50,
-  //     decoration: BoxDecoration(
-  //         borderRadius: BorderRadius.circular(10),
-  //         gradient: LinearGradient(colors: [
-  //           const Color.fromRGBO(143, 148, 251, 1),
-  //           const Color.fromRGBO(143, 148, 251, .6),
-  //         ])),
-  //     child: Center(
-  //       child: Text(
-  //         "Login",
-  //         style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-  //       ),
-  //     ),
-  //   );
-  // }
-
   Row _socialButtons() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -132,7 +122,7 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  loginFields(context) {
+  loginFields(context, HotelListProvider _provider) {
     // final languageChange = Provider.of<AppLocalizationProvider>(context);
     return Form(
         key: _formKey,
@@ -178,28 +168,30 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(
                   height: MediaQuery.of(context).size.height * 0.05,
                 ),
-                BaseViewModelWidget<HotelListModel>(
-                  builder: (BuildContext context, HotelListModel _provider) => InkWell(
-                    onTap: () {
-                      _provider.tryPrint();
-                      // languageChange.changeLanguage(context, 'ar');
-                      //Navigator.pushNamed(context, '/home');
-                    },
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: Container(
-                        height: MediaQuery.of(context).size.height * 0.07,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            gradient: LinearGradient(colors: [
-                              Theme.of(context).primaryColor,
-                              Theme.of(context).primaryColor.withOpacity(0.5),
-                            ])),
-                        child: Center(
-                          child: Text(
-                            AppLocalizations.of(context)!.hello,
-                            style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-                          ),
+                InkWell(
+                  onTap: () {
+                    // final ApiResultModel api = await _provider.tryPrint();
+                    // api.when(
+                    //   success: (success) => print(success),
+                    //   failure: (failure) => print('failure'),
+                    // );
+                    // languageChange.changeLanguage(context, 'ar');
+                    Navigator.pushNamed(context, '/home');
+                  },
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Container(
+                      height: MediaQuery.of(context).size.height * 0.07,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          gradient: LinearGradient(colors: [
+                            Theme.of(context).primaryColor,
+                            Theme.of(context).primaryColor.withOpacity(0.5),
+                          ])),
+                      child: const Center(
+                        child: Text(
+                          'Login',
+                          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
                         ),
                       ),
                     ),

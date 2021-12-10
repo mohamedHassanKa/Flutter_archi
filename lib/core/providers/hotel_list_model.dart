@@ -1,10 +1,18 @@
+import 'dart:convert';
+import 'dart:ffi';
+
+import 'package:archi/core/models/common_models/error_model.dart';
 import 'package:flutter/material.dart';
 
-import 'models/hotel_data_model.dart';
+import '../models/hotel_data_model.dart';
 import 'package:injectable/injectable.dart';
+import '../services/http_invote_api.dart';
+import '../models/common_models/api_result_model.dart';
+import '../../ui/shared/locator_setup/locator.dart';
+import './base_provider.dart';
 
 @injectable
-class HotelListModel extends ChangeNotifier {
+class HotelListProvider extends BaseProvider {
   static final List<HotelListData> _hotelList = [
     HotelListData(
       imagePath: 'assets/hotel1.jpg',
@@ -62,8 +70,22 @@ class HotelListModel extends ChangeNotifier {
     ),
   ];
   List<HotelListData> get hotelList => _hotelList;
+  final HttpInvokeApi _http = locator<HttpInvokeApi>();
 
-  tryPrint() {
-    print('hi');
+  Future<ApiResultModel> tryPrint() async {
+    setBusy(true);
+    ApiResultModel call = await _http.getWS(uri: 'posts');
+    setBusy(false);
+    return call.when(
+      success: (success) {
+        //print(success);
+        final dynamic decodeJson = jsonDecode(success.body);
+        return ApiResultModel.success(data: decodeJson);
+      },
+      failure: (failure) {
+        //print(failure);
+        return ApiResultModel.failure(errorModel: failure);
+      },
+    );
   }
 }

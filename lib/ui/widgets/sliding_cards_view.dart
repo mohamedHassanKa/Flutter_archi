@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
 import 'package:provider/provider.dart';
-import '../../core/hotel_list_model.dart';
+import '../../core/providers/hotel_list_model.dart';
 import '../../core/models/hotel_data_model.dart';
 
 class SlidingCardsView extends StatefulWidget {
@@ -39,7 +39,7 @@ class _SlidingCardsViewState extends State<SlidingCardsView> {
       child: AnimatedBuilder(
           animation: pageController,
           builder: (context, child) {
-            var hotelModel = Provider.of<HotelListModel>(context);
+            var hotelModel = Provider.of<HotelListProvider>(context);
             return PageView.builder(
               itemCount: hotelModel.hotelList.length,
               controller: pageController,

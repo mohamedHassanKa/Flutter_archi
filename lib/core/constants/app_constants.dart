@@ -1,5 +1,12 @@
 ///This is the time limit for every api call
 const Duration timeOutDuration = Duration(seconds: 30);
+
+const String connectionFailedString = 'La connexion a échoué, vérifier votre connexion internet SVP';
+
+/// exception status code
+const int timeoutStatusCode = 900;
+const int runtimeExceptionStatusCode = 800;
+const int socketExceptionStatusCode = 700;
 const String timeoutExceptionMessage = "le serveur n'a pas répondu à temps nécessaire, essayez ultérieurement";
 
 /// shared pref keys
@@ -25,3 +32,6 @@ const String contentTypeKey = 'Content-Type';
 const String contentTypeValue = 'application/json';
 const String contentMutlipartTypeValue = 'multipart/form-data';
 const String userPhoneNumberKey = 'userPhoneNumber';
+
+///base url
+const String baseUrl = 'https://jsonplaceholder.typicode.com/';
